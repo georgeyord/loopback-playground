@@ -18,5 +18,8 @@ coverage
 node_modules
 npm-debug.log
 
+# VSCode related
+.history
+
 # Yord defaults
 .TODO
