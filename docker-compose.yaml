@@ -1,0 +1,26 @@
+version: "3.4"
+
+services:
+  api:
+    image: github.com/georgeyord/loopback-playground:latest
+    build: .
+    ports:
+    - "8088:8088"
+    depends_on:
+    - mongo
+    volumes:
+    - .:/usr/src/app
+  mongo:
+    image: mongo:3.6
+    ports:
+    - "27017:27017"
+  mongo-express:
+    image: mongo-express:latest
+    ports:
+    - "8081:8081"
+    depends_on:
+    - mongo
+    environment:
+            - ME_CONFIG_MONGODB_SERVER=mongo
+            - ME_CONFIG_MONGODB_PORT=27017
+            - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
