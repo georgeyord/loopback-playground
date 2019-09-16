@@ -14,6 +14,8 @@ services:
     image: mongo:3.6
     ports:
     - "27017:27017"
+    volumes:
+    - ./docker/volumes/mongo/data:/data/db
   mongo-express:
     image: mongo-express:latest
     ports:
@@ -21,6 +23,6 @@ services:
     depends_on:
     - mongo
     environment:
-            - ME_CONFIG_MONGODB_SERVER=mongo
-            - ME_CONFIG_MONGODB_PORT=27017
-            - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
+      - ME_CONFIG_MONGODB_SERVER=mongo
+      - ME_CONFIG_MONGODB_PORT=27017
+      - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
