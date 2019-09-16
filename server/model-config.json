@@ -32,38 +32,38 @@
     }
   },
   "Role": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": false
   },
   "Card": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": true
   },
   "CardSet": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": true
   },
   "Message": {
     "dataSource": null
   },
   "Participant": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": true
   },
   "Room": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": true
   },
   "RoomAdministrator": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": true
   },
   "Story": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": true
   },
   "Vote": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": true
   }
 }

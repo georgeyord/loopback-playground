@@ -20,7 +20,7 @@
       "required": true
     },
     "isPrivate": {
-      "type": "bool",
+      "type": "boolean",
       "required": true
     },
     "participants": {
