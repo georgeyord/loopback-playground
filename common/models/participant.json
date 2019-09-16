@@ -11,10 +11,6 @@
       "type": "string",
       "required": true,
       "default": "John Doe"
-    },
-    "id": {
-      "type": "string",
-      "required": true
     }
   },
   "validations": [],
