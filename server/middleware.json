@@ -39,7 +39,11 @@
       ]
     }
   },
-  "files": {},
+  "files": {
+    "loopback#static": {
+      "params": "$!../files"
+    }
+  },
   "final": {
     "loopback#urlNotFound": {}
   },
