@@ -1,10 +1,9 @@
 'use strict';
 
-module.exports = function(Message) {
-  Message.greet = function(msg, cb) {
-    process.nextTick(function() {
-      msg = msg || 'hello';
-      cb(null, 'Sender says ' + msg + ' to receiver');
+module.exports = function (Message) {
+  Message.greet = function (msg, cb) {
+    process.nextTick(() => {
+      cb(null, `Sender says ${msg || 'hello'} to receiver`);
     });
   };
 };

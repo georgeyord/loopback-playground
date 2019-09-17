@@ -1,5 +1,5 @@
 'use strict';
 
-module.exports = function(Story) {
+module.exports = function () {
 
 };

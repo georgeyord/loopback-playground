@@ -1,5 +1,5 @@
 'use strict';
 
-module.exports = function(Cardset) {
+module.exports = function () {
 
 };
