@@ -4,7 +4,7 @@
     "connector": "memory"
   },
   "mongodb": {
-    "host": "mongo",
+    "host": "localhost",
     "port": 27017,
     "url": "",
     "database": "scrumpoker",
