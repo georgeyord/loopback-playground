@@ -9,8 +9,7 @@
   "properties": {
     "name": {
       "type": "string",
-      "required": true,
-      "default": "John Doe"
+      "required": true
     }
   },
   "validations": [],

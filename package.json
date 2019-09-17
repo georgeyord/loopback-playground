@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "main": "server/server.js",
   "engines": {
-    "node": ">=6"
+    "node": ">=8.9.0"
   },
   "scripts": {
+    "before_test": "npm install && npm rebuild",
     "lint": "eslint .",
-    "start": "node .",
-    "posttest": "npm run lint && npm audit"
+    "posttest": "npm run lint && npm audit",
+    "start": "node ${DEBUG+'--inspect=0.0.0.0:9229'} .",
+    "watch": "nodemon ${DEBUG+'--inspect=0.0.0.0:9229'} .",
+    "test": "./node_modules/.bin/mocha --exit -t 5000 --recursive test",
+    "test-watch": "./node_modules/.bin/mocha --watch --exit -t 5000 --recursive test"
   },
   "dependencies": {
     "bluebird": "^3.5.5",
@@ -19,16 +23,30 @@
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^6.2.0",
     "loopback-connector-mongodb": "^4.2.0",
+    "nodemon": "^1.19.2",
     "serve-favicon": "^2.0.1",
     "strong-error-handler": "^3.0.0"
   },
   "devDependencies": {
-    "eslint": "^3.17.1",
-    "eslint-config-loopback": "^8.0.0"
+    "babel-eslint": "^10.0.3",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-loopback": "^8.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-mocha": "^6.1.1",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "mocha": "^6.2.0",
+    "sinon": "^7.4.2",
+    "sinon-chai": "^3.3.0",
+    "supertest": "^4.0.2"
   },
   "repository": {
-    "type": "",
-    "url": ""
+    "type": "git",
+    "url": "git@github.com:georgeyord/loopback-playground.git"
   },
   "license": "UNLICENSED",
   "description": "scrumpoker"
