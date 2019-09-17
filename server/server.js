@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 let loopback = require("loopback");
 let boot = require("loopback-boot");
@@ -6,7 +6,7 @@ let boot = require("loopback-boot");
 let app = (module.exports = loopback());
 
 // TODO: global.logger = require('./lib/common').logger({ name: 'analytics' });
-// TODO: global.Promise = require('bluebird');
+global.Promise = require('bluebird');
 
 app.start = async () => {
   app.server = app.listen(() => {
