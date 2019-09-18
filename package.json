@@ -9,13 +9,14 @@
     "before_test": "npm install && npm rebuild",
     "lint": "eslint .",
     "lint-fix": "eslint --fix .",
-    "start": "node ${DEBUG+'--inspect=0.0.0.0:9229'} .",
-    "watch": "nodemon ${DEBUG+'--inspect=0.0.0.0:9229'} .",
-    "test": "./node_modules/.bin/mocha --exit -t 5000 --recursive test",
-    "test-watch": "./node_modules/.bin/mocha --watch --exit -t 5000 --recursive test"
+    "start": "node ${DEBUG+'--inspect-brk=0.0.0.0:9229'} .",
+    "watch": "nodemon ${DEBUG+'--inspect-brk=0.0.0.0:9229'} .",
+    "test": "node ${DEBUG+'--inspect-brk=0.0.0.0:9229'} ./node_modules/.bin/mocha --exit --timeout 5000 --recursive test",
+    "test-watch": "./node_modules/.bin/mocha --exit --timeout 5000 --watch --recursive test"
   },
   "dependencies": {
     "bluebird": "^3.5.5",
+    "bunyan": "^1.8.12",
     "compression": "^1.0.3",
     "cors": "^2.5.2",
     "helmet": "^3.10.0",
@@ -25,7 +26,7 @@
     "loopback-connector-mongodb": "^4.2.0",
     "nodemon": "^1.19.2",
     "serve-favicon": "^2.0.1",
-    "strong-error-handler": "^3.0.0"
+    "strong-error-handler": "^3.2.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
