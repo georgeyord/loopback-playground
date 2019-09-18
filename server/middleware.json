@@ -31,6 +31,9 @@
   },
   "session": {},
   "auth": {},
+  "auth:after": {
+    "./middleware/requestLogger": {}
+  },
   "parse": {},
   "routes": {
     "loopback#rest": {
@@ -48,6 +51,12 @@
     "loopback#urlNotFound": {}
   },
   "final:after": {
-    "strong-error-handler": {}
+    "strong-error-handler": {
+      "params": {
+        "debug": true,
+        "log": true,
+        "safeFields": ["code", "errors", "failedLogins"]
+      }
+    }
   }
 }

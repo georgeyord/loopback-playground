@@ -12,7 +12,7 @@ const should = chai.should();
 
 // Check for environment variables and set them if not already set
 const { env } = process;
-env.MONGO_DATABASE = env.MONGO_DATABASE || 'scrumpoker-test';
+env.NODE_ENV = 'testing';
 
 // Load application server
 const app = require('../server/server.js');

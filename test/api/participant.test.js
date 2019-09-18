@@ -14,16 +14,12 @@ describe('Testing Participant Model API', () => {
   describe('Create a participant', () => {
     describe('without name', () => {
       let response;
-      before('make the request', (done) => {
-        apiRequest
-          .post(`${endpoint}`)
-          .send({})
-          .then((res) => {
-            response = res;
-            done();
-          })
-          .catch(done);
-      });
+      before('make the request', async () => apiRequest
+        .post(`${endpoint}`)
+        .send({})
+        .then((res) => {
+          response = res;
+        }));
       it('should have Content-Type json', () => {
         response.type.should.match(/json/);
       });
