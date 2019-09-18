@@ -13,17 +13,27 @@
     },
     "description": {
       "type": "string"
-    },
-    "roomID": {
-      "type": "string"
-    },
-    "writerID": {
-      "type": "string",
-      "required": true
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "writer": {
+      "type": "hasOne",
+      "model": "Participant",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "room": {
+      "type": "belongsTo",
+      "model": "Room",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
   "acls": [],
   "methods": {}
 }

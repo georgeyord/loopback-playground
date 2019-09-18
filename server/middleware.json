@@ -30,7 +30,6 @@
     }
   },
   "session": {},
-  "auth": {},
   "auth:after": {
     "./middleware/requestLogger": {}
   },
@@ -55,7 +54,11 @@
       "params": {
         "debug": true,
         "log": true,
-        "safeFields": ["code", "errors", "failedLogins"]
+        "safeFields": [
+          "code",
+          "errors",
+          "failedLogins"
+        ]
       }
     }
   }

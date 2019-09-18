@@ -24,7 +24,24 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "voter": {
+      "type": "belongsTo",
+      "model": "Participant",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "story": {
+      "type": "belongsTo",
+      "model": "Story",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
   "acls": [],
   "methods": {}
 }

@@ -11,10 +11,6 @@
       "type": "string",
       "required": true
     },
-    "roomAdministratorId": {
-      "type": "string",
-      "required": true
-    },
     "token": {
       "type": "string",
       "required": true
@@ -22,15 +18,43 @@
     "isPrivate": {
       "type": "boolean",
       "required": true
-    },
-    "participants": {
-      "type": "object",
-      "required": true,
-      "default": 0
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "cardSets": {
+      "type": "hasOne",
+      "model": "CardSet",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "participants": {
+      "type": "hasMany",
+      "model": "Participant",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "roomAdministrator": {
+      "type": "hasOne",
+      "model": "RoomAdministrator",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "cardSet": {
+      "type": "hasOne",
+      "model": "CardSet",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
   "acls": [],
   "methods": {}
 }
