@@ -9,16 +9,14 @@
     "value": {
       "type": "string",
       "required": true
+    },
+    "cardSetID": {
+      "type": "any",
+      "required": true
     }
   },
   "validations": [],
-  "relations": {
-    "cardSet": {
-      "type": "belongsTo",
-      "model": "CardSet",
-      "foreignKey": "cardSetID"
-    }
-  },
+  "relations": {},
   "acls": [],
   "methods": {}
 }

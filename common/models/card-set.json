@@ -11,6 +11,16 @@
       "required": true
     }
   },
+  "indexes": {
+    "card_set_name": {
+      "keys": {
+        "name": 1
+      },
+      "options": {
+        "unique": true
+      }
+    }
+  },
   "validations": [],
   "relations": {
     "card": {

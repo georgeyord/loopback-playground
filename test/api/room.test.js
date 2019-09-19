@@ -8,37 +8,24 @@ const testSetup = require('../testSetup.js');
 // const { should } = testSetup;
 const { appModels, apiRequest, apiBaseUrl } = testSetup;
 
-let sampleCardSet = {};
-
-const cardSetName = 'Foo';
-const cardValues = ['1', '2', '3', '5'];
-
-before('Initialize required models for testing', () => {
-  appModels.CardSet.findOrCreate(
-    { where: { name: cardSetName } },
-    { name: cardSetName }
-  )
-    .then(([cardSet]) => {
-      sampleCardSet = cardSet;
-      Promise.map(
-        cardValues, (value) => appModels.Card.findOrCreate(
-          { where: { value, cardSetID: cardSet.id } },
-          { value, cardSetID: cardSet.id }
-        )
-      );
-    });
-});
-
 describe('Testing Room Model API', () => {
   const endpoint = `${apiBaseUrl}/Rooms`;
+
+  let sampleCardSet = {};
+  before('Initialize required models for testing', () => {
+    appModels.CardSet.findOne({ where: { name: 'Fibonacci' } })
+      .then((cardSet) => {
+        sampleCardSet = cardSet;
+      });
+  });
+
   describe('Create a room', () => {
     describe('without a name', () => {
       let response;
       before('make the request', async () => apiRequest
         .post(`${endpoint}`)
         .send({
-          cardSetID: sampleCardSet.id,
-          isPrivate: false
+          cardSetID: sampleCardSet.id
         })
         .then((res) => {
           response = res;
@@ -55,7 +42,7 @@ describe('Testing Room Model API', () => {
         .post(`${endpoint}`)
         .send({
           name: 'A Team',
-          isPrivate: false
+          isPrivate: true
         })
         .then((res) => {
           response = res;
@@ -68,12 +55,12 @@ describe('Testing Room Model API', () => {
 
     describe('with properDara', () => {
       let response;
+
       before('make the request', async () => apiRequest
         .post(`${endpoint}`)
         .send({
           name: 'A Team',
-          cardSetID: sampleCardSet.id,
-          isPrivate: false
+          cardSetID: sampleCardSet.id
         })
         .then((res) => {
           response = res;
@@ -94,6 +81,9 @@ describe('Testing Room Model API', () => {
       it('should return a valid token', () => {
         response.body.should.have.property('token');
       });
+      it('should return a valid isPrivate', () => {
+        response.body.should.have.property('isPrivate', false);
+      });
       it('should return a valid created date field', () => {
         response.body.should.have.property('created');
       });
@@ -102,7 +92,35 @@ describe('Testing Room Model API', () => {
       });
       it('should return the same name', () => {
         response.body.should.have.property('name', 'A Team');
-        console.log(response.body);
+      });
+    });
+  });
+
+
+  describe('Find a room', () => {
+    describe('with properDara', () => {
+      let response;
+      before('make the request', async () => apiRequest
+        .get(`${endpoint}/findOne`)
+        .query({ filter: { where: { name: 'Room1' } } })
+        .then((res) => {
+          response = res;
+        }));
+
+      it('should have Content-Type json', () => {
+        response.type.should.match(/json/);
+      });
+      it('should return status code 200', () => {
+        response.status.should.equal(200);
+      });
+      it('should return a valid id', () => {
+        response.body.should.have.property('id');
+      });
+      it('should return a valid isPrivate', () => {
+        response.body.should.have.property('isPrivate', false);
+      });
+      it('should return the same name', () => {
+        response.body.should.have.property('name', 'Room1');
       });
     });
   });

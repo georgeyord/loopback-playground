@@ -7,11 +7,11 @@
     "validateUpsert": true
   },
   "mixins": {
-     "Timestamp": {},
-     "Token": {
-       "size": 4
-     }
-   },
+    "Timestamp": {},
+    "Token": {
+      "size": 4
+    }
+  },
   "properties": {
     "name": {
       "type": "string",
@@ -21,9 +21,14 @@
       "type": "string",
       "required": true
     },
+    "cardSetID": {
+      "type": "any",
+      "required": true
+    },
     "isPrivate": {
       "type": "boolean",
-      "required": true
+      "required": true,
+      "default": false
     }
   },
   "indexes": {
@@ -38,7 +43,7 @@
   },
   "validations": [],
   "relations": {
-    "cardSets": {
+    "cardSet": {
       "type": "hasOne",
       "model": "CardSet",
       "foreignKey": "",
@@ -57,14 +62,6 @@
     "roomAdministrator": {
       "type": "hasOne",
       "model": "RoomAdministrator",
-      "foreignKey": "",
-      "options": {
-        "nestRemoting": true
-      }
-    },
-    "cardSet": {
-      "type": "hasOne",
-      "model": "CardSet",
       "foreignKey": "",
       "options": {
         "nestRemoting": true
