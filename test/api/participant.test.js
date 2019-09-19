@@ -74,7 +74,7 @@ describe('Testing Participant Model API', () => {
     it('should return a valid id', () => {
       response.body.should.have.property('id');
     });
-    it('should return thw same name', () => {
+    it('should return the same name', () => {
       response.body.should.have.property('name', participantName);
     });
   });

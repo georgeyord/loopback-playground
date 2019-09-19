@@ -6,12 +6,11 @@
   "options": {
     "validateUpsert": true
   },
+  "mixins": {
+     "Timestamp": {}
+   },
   "properties": {
     "name": {
-      "type": "string",
-      "required": true
-    },
-    "token": {
       "type": "string",
       "required": true
     },

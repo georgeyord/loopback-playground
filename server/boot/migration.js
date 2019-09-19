@@ -8,7 +8,7 @@ module.exports = function (app) {
     { name }
   )
     .then(([{ id }]) => Promise.map(values, (value) => app.models.Card.findOrCreate(
-      { where: { value, cardSetID: id } },
-      { value, cardSetID: id }
+      { where: { value, cardSet: id } },
+      { value, cardSet: id }
     ))));
 };
