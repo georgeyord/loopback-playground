@@ -1,0 +1,40 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Run",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "start"
+      ],
+      "env": {
+        "DEBUG": "1"
+      },
+      "port": 9229,
+      "serverReadyAction": {
+        "pattern": "Browse your REST API at: (.*)",
+        "uriFormat": "%s",
+        "action": "openExternally"
+      }
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Run tests",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "test"
+      ],
+      "env": {
+        "DEBUG": "1"
+      },
+      "port": 9229,
+    }
+  ]
+}
