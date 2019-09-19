@@ -16,7 +16,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "cardSet": {
+      "type": "belongsTo",
+      "model": "CardSet",
+      "foreignKey": "cardSetID"
+    }
+  },
   "acls": [],
   "methods": {}
 }

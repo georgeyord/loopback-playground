@@ -1,22 +1,27 @@
 'use strict';
 
-/**
- * Tests for the Participant Model
- */
 const testSetup = require('../testSetup.js');
-// Load the test utils
-// const { should } = testSetup;
+
 const { appModels, apiRequest, apiBaseUrl } = testSetup;
 
 describe('Testing Room Model API', () => {
   const endpoint = `${apiBaseUrl}/Rooms`;
+  let sampleCardSet;
 
-  let sampleCardSet = {};
-  before('Initialize required models for testing', () => {
-    appModels.CardSet.findOne({ where: { name: 'Fibonacci' } })
-      .then((cardSet) => {
-        sampleCardSet = cardSet;
-      });
+  before('Initialize required models for testing', async () => {
+    sampleCardSet = await appModels.CardSet.findOne(
+      {
+        where: { name: 'Fibonacci' },
+        include: 'cards'
+      },
+    );
+    // same as above `include: 'cards'`
+    // await sampleCardSet.cards.find();
+    // console.log(sampleCardSet.cards());
+
+    // const card = sampleCardSet.cards()[0];
+    // await card.cardSet.get();
+    // console.log(card.cardSet().name); // should print 'Foo'
   });
 
   describe('Create a room', () => {

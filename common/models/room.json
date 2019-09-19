@@ -17,10 +17,6 @@
       "type": "string",
       "required": true
     },
-    "token": {
-      "type": "string",
-      "required": true
-    },
     "cardSetID": {
       "type": "any",
       "required": true
@@ -29,16 +25,6 @@
       "type": "boolean",
       "required": true,
       "default": false
-    }
-  },
-  "indexes": {
-    "room_token": {
-      "keys": {
-        "token": 1
-      },
-      "options": {
-        "unique": true
-      }
     }
   },
   "validations": [],
@@ -67,6 +53,9 @@
         "nestRemoting": true
       }
     }
+  },
+  "scope": {
+    "include": "cardSet"
   },
   "acls": [],
   "methods": {}

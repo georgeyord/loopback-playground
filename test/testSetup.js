@@ -88,13 +88,12 @@ before('Initialize required users for testing', (done) => {
     .catch(done); // pass error to mocha
 });
 
-after('Clean up test resources', (done) => {
+after('Clean up test resources', async () => {
   // get db reference
   const db = app.datasources.mongodb ? app.datasources.mongodb.connector.db : null;
-  if (db) { // if we got db object successfully
-    db.dropDatabase(done);
-  } else {
-    done();
+  // if we got db object successfully
+  if (db) {
+    await db.dropDatabase();
   }
 });
 
