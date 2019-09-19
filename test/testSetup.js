@@ -99,6 +99,8 @@ after('Clean up test resources', (done) => {
 });
 
 module.exports = {
+  app,
+  appModels: app.models,
   apiRequest,
   apiBaseUrl: app.settings.restApiRoot,
   testUser,

@@ -7,16 +7,33 @@
     "validateUpsert": true
   },
   "mixins": {
-     "Timestamp": {}
+     "Timestamp": {},
+     "Token": {
+       "size": 4
+     }
    },
   "properties": {
     "name": {
       "type": "string",
       "required": true
     },
+    "token": {
+      "type": "string",
+      "required": true
+    },
     "isPrivate": {
       "type": "boolean",
       "required": true
+    }
+  },
+  "indexes": {
+    "room_token": {
+      "keys": {
+        "token": 1
+      },
+      "options": {
+        "unique": true
+      }
     }
   },
   "validations": [],
